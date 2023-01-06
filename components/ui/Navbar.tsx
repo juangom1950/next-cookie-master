@@ -20,6 +20,7 @@ export const Navbar = () => {
                 </Link>
             </NextLink>
 
+            {/* flex: 1 will get all the space between these two components */}
             <div style={{ flex: 1 }} />
 
             <NextLink href="/theme-changer" passHref>

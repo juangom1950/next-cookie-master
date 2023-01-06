@@ -13,6 +13,7 @@ interface Props {
     theme: string;
 }
 
+// Another way to do it is ({ theme }: Props)
 const ThemeChangerPage: FC<Props> = ({ theme }) => {
 
     // console.log({ props })
@@ -71,16 +72,14 @@ const ThemeChangerPage: FC<Props> = ({ theme }) => {
     )
 }
 
-
-
 // You should use getServerSideProps when:
 // - Only if you need to pre-render a page whose data must be fetched at request time
 
 export const getServerSideProps: GetServerSideProps = async ({ req }) => {
     
+    // Read the cookie server side
     const { theme = 'light', name = 'No name' } = req.cookies;
     const validThemes = ['light','dark','custom'];
-
 
     return {
         props: {
@@ -89,7 +88,5 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
         }
     }
 }
-
-
 
 export default ThemeChangerPage;
